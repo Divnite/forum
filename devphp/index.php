@@ -8,15 +8,15 @@
     </head>
     
     <header>
-        <div id='banner'></div>
-        <img src="img/logo.png">
-
-
+        <img id="logo" src="img/logo.png">
+        <img src="https://img.icons8.com/ios-filled/50/000000/name.png">
 
     </header>
 
 
     <body>
+
+    <input type="button" value="New Topic">
 
         <?php
             echo"<form action='execution.php' method='post'>";

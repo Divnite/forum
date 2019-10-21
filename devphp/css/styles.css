@@ -1,0 +1,14 @@
+header{
+    width: 100%;
+    background-color: gray;
+    margin: auto;
+    height: 250px;
+}
+
+
+#logo{
+    border: solid black 3px;
+    border-radius: 100%;
+    width: 175px;
+    vertical-align: middle;
+}
