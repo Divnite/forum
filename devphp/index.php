@@ -8,8 +8,10 @@
     </head>
     
     <header>
-        <div id='banner'></div>
+        <div id='banner'>
         <img src="img/logo.png">
+        </div>
+        
 
 
 
@@ -19,11 +21,11 @@
     <body>
 
         <?php
-            echo"<form action='php/execution.php' method='post'>";
-            echo"<label for='POST-name'>Username :</label>";
-            echo  "<input id='POST-name' type='text' name='name'>";
-            echo  "<label for='POST-mdp'>Password :</label>";
-            echo  "<input id='POST-mdp' type='text' name='mdp'>";
+            echo"<form action='php/execution.php' method='POST'>";
+            echo"<label for='POST-username'>Username :</label>";
+            echo  "<input id='username' type='text' name='username'>";
+            echo  "<label for='POST-password'>Password :</label>";
+            echo  "<input id='password' type='text' name='password'>";
             echo  "<input type='submit' value='Enregistrer'>";
             echo"</form>";
         ?>

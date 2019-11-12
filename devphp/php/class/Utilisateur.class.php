@@ -1,8 +1,5 @@
 <?php
 
-require 'DB.class.php';
-require 'bdconfig.php';
-
 class Utilisateur{
     
     public $id;
@@ -16,17 +13,20 @@ class Utilisateur{
 
     public function __construct($utilisateur,$motdepasse){
 
-        if ($_POST['Username']=='vergnier' && $_POST['Password']=='bastien'){
-        $connexion= new DB($bddname,$username,$password);
+        $connexion= new DB();
         $param=array($utilisateur,$motdepasse);
-        $res = $connexion->LoadData("SELECT * FROM utilisateurs WHERE Username='?' AND Password='?' ",$param);
+
+        $info= $connexion->LoadData("SELECT $vusername,$vpassword FROM uilisateurs WHERE username='?' AND password='?' ",$param);
+        $this->username=$info[0];
+        $this->password=$info[1];
+        if($info[0]==$param[0] && $info[1]==$param[1]){
+        $res = $connexion->LoadData("SELECT * FROM utilisateurs WHERE username='?' AND password='?' ",$param);
         $this->id=$res[0];
         $this->nom=$res[1];
         $this->prenom=$res[2];
         $this->mail=$res[3];
-        }
-        else{
-            echo('Username/Password incorrect!');
+        $this->nb_connexion=$res[4];
+        $this->last_connexion=$res[5];
         }
 
     }
