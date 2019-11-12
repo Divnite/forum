@@ -8,18 +8,18 @@
     </head>
     
     <header>
-        <img id="logo" src="img/logo.png">
-        <img src="https://img.icons8.com/ios-filled/50/000000/name.png">
+        <div id='banner'></div>
+        <img src="img/logo.png">
+
+
 
     </header>
 
 
     <body>
 
-    <input type="button" value="New Topic">
-
         <?php
-            echo"<form action='execution.php' method='post'>";
+            echo"<form action='php/execution.php' method='post'>";
             echo"<label for='POST-name'>Username :</label>";
             echo  "<input id='POST-name' type='text' name='name'>";
             echo  "<label for='POST-mdp'>Password :</label>";
