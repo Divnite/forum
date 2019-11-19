@@ -15,19 +15,14 @@ class Utilisateur{
 
         $connexion= new DB();
         $param=array($utilisateur,$motdepasse);
-
-        $info= $connexion->LoadData("SELECT $vusername,$vpassword FROM uilisateurs WHERE username='?' AND password='?' ",$param);
-        $this->username=$info[0];
-        $this->password=$info[1];
-        if($info[0]==$param[0] && $info[1]==$param[1]){
-        $res = $connexion->LoadData("SELECT * FROM utilisateurs WHERE username='?' AND password='?' ",$param);
+        $res = $connexion->LoadData("SELECT * FROM utilisateurs WHERE username=? AND password=?",$param);
         $this->id=$res[0];
         $this->nom=$res[1];
         $this->prenom=$res[2];
         $this->mail=$res[3];
         $this->nb_connexion=$res[4];
         $this->last_connexion=$res[5];
-        }
+        echo($this->nom);
 
     }
 

@@ -5,9 +5,9 @@
 class DB{
 
     public $connexion;
-    public $bddname = 'psql:host=localhost;port=5432;dbname=forumDB';
-	public $username = 'postgres';
-	public $password = 'posgres';
+    public $bddname = 'mysql:host=localhost;dbname=forumDB';
+	public $username = 'root';
+	public $password = '';
 
 
     public function __construct(){
@@ -23,11 +23,11 @@ class DB{
 
     }
 
-    public function LoadData($request,$param){
+    public function LoadData($request,$param=null){
 
-        $req=$connexion->prepare($request,$param=null);
-        $res=$req->execute();
-        return res;
+        $req=$this->connexion->prepare($request);
+        $res=$req->execute($param);
+        return $res;
 
     }
 
