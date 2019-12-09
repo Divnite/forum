@@ -1,7 +1,5 @@
 <?php
 
-
-
 class DB{
 
     public $connexion;
@@ -13,32 +11,47 @@ class DB{
     public function __construct(){
 
         $this->connexion = new PDO($this->bddname,$this->username,$this->password);
+        $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    }
+
+    function connexion($id){
+        session_start();
+        $_SESSION['id']=$id;
     }
 
 
     public function deconnexion(){
 
-        $connexion=null;
+        session_destroy();
 
     }
 
-    public function LoadData($request,$param=null){
+    public function LoadDataValue($request,$param=null){
 
         $req=$this->connexion->prepare($request);
         $res=$req->execute($param);
-        return $res;
+        
+    }
 
+    public function LoadDataVoid($request,$param=null){
+
+        $req=$this->connexion->prepare($request);
+        $res=$req->execute($param);
+        
     }
 
 
-    public function return_void(){
+    /*public function return_void(){
 
     }
 
-    public function return_value(){
+    public function return_value($req){
 
-    }
+        $result = $req->fetchAll();
+        print_r($result);
+
+    }*/
 
 
 }

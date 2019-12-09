@@ -1,15 +1,24 @@
 <?php
 
-class Themes(){
+class Theme{
 
     public $id;
     public $titre;
-    public $createur;
-    public $date_creation;
+    public $param;
+
+
+    function __construct(){
+
+
+    }
 
 
 
-    public function Disscussion($id){
+    function ajoutTheme($titre){
+
+        $connexion= new DB();
+        $param=array($titre);
+        $res = $connexion->LoadDataVoid("INSERT INTO Themes (titre) VALUES (?) ",$param);
 
     }
     
